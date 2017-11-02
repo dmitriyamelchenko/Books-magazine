@@ -1,59 +1,86 @@
-
-.wrapper{
-  display: grid;
-  grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
-  grid-template-rows: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
-  width: 100vw;
-  min-height: 100vh;
-  height: 100%;
-  background-image: url(../img/background-image.jpg);
-}
+/* <<<<<<<<<<<<<<header styles>>>>>>>>>>>>>>>> */
 .header{
-    grid-column:2/19;
-    grid-row:2/4;
-    background: red;
+    height: 100px;
+    background: grey;
 }
-#logo-img {
-    width: 8%;
-    margin: 2px 0 0 9px;
-}
-
 .header-logo{
-    grid-column:2/5;
-    grid-row:2/4;
-    z-index: 100;
-    background: greenyellow;
-}
-.nav{
-    grid-column:2/5;
-    grid-row:4/18;
-    background: blue;
-}
-.nav-category{
-    grid-column:2/5;
-    /* grid-row:4/18; */
-    height: 60%;
-    background: gold;
-}
-.nav-filter{
-    grid-column:2/5;
-    /* grid-row:4/18; */
-    height: 40%;
-    background: brown;
-}
-.main{
-    grid-column:5/19;
-    grid-row:4/18;
+    height: 100px;
     background: green;
 }
-.main-slider{
-    grid-column:7/19;
-    height: 40%;
-    background-image: url(../img/slider.jpeg);
-    background-size: contain; 
+.header-search{
+    height: 100px;
+    background: gold;
 }
-.footer{
-    grid-column:2/19;
-    grid-row:18/20;
-    background: black;
+.header-user-panel{
+    height: 100px;
+    background: blue;
 }
+
+
+/* <<<<<<<<<<<<<<<<<<<main>>>>>>>>>>>>>>>>>>>>>> */
+.main{
+    background: grey;
+}
+
+/* <<<Category>>>> */
+.nav-category{
+    list-style: none;
+}
+.nav-category li{
+   cursor: pointer;
+   transition: 0.3s;
+}
+.nav-category li:first-child{
+    background: rgb(46, 238, 46);
+    font-size: 20px;
+}
+.nav-category li:hover{
+    font-size: 30px;
+    background: yellow;
+    transition: 0.3s;
+}
+.nav{
+    background: red;
+    height: 400px;
+}
+
+/* <<<<<<<<Slider>>>>>> */
+.slider{
+    background: rebeccapurple;
+    height: 400px;
+}
+
+/* <<<<<<Filters>>>>>>>>> */
+.filter{
+    background: yellowgreen;
+    height: 50px;
+}
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<Content>>>>>>>>>>>>>>>>>>>> */
+.content{
+    background: sandybrown;
+    height: 450px;
+}
+
+
+/* <<<<<<<<<<<<<<<<<<<<<<<Footer>>>>>>>>>>>>>>>>>>>>>> */
+.column1{
+    background: red;
+    height: 200px;
+}
+.column2{
+    background: green;
+    height: 200px;
+}
+.column3{
+    background: blue;
+    height: 200px;
+}
+.column4{
+    background: yellow;
+    height: 200px;
+}
+
+
+
