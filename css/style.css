@@ -1,4 +1,9 @@
+* {
+    font-family: 'Roboto';
+}
+
 /* <<<<<<<<<<<<<<header styles>>>>>>>>>>>>>>>> */
+
 .header{
     height: 100px;
     background: grey;
@@ -60,7 +65,49 @@
 /*<<<<<<<<<<<<<<<<<<<<<<<Content>>>>>>>>>>>>>>>>>>>> */
 .content{
     background: sandybrown;
-    height: 450px;
+    height: 750px;
+    overflow: hidden;
+}
+
+
+#result .grocery_card {
+    height: 200px;
+    width: 29%;
+    background: rgba(204, 204, 204, 0.40);
+    margin: 20px;
+    float: left;
+    position: relative;
+}
+
+.grocery_card .smallCardImg {
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+    float: left;
+}
+
+.grocery_card h4, .grocery_card p {
+    text-align: center;
+    font-weight: 400;
+    display: block;
+    font-size: 15px;
+
+}
+
+.grocery_card span {
+    display: block;
+    text-align: center;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+
+.grocery_card button {
+    position: absolute;
+    bottom: 0;
+
 }
 
 
