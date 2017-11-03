@@ -1,22 +1,9 @@
 * {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    font-family: 'Roboto';
-}
-
-=======
->>>>>>> 89dd8ac58db18351039c47189e0ca217cacabf11
     margin:0;
     padding:0;
     font-family: 'Roboto';
 }
 
-<<<<<<< HEAD
-
-/* <<<<<<<<<<<<<<header styles>>>>>>>>>>>>>>>> */
-
-=======
->>>>>>> 89dd8ac58db18351039c47189e0ca217cacabf11
 .header{
     height: 100px;
     background: grey;
