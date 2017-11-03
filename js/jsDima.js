@@ -10,7 +10,6 @@ var i = 0;
 var divBasket = document.createElement('div');
 basket.onclick = function () {
     if(i==0){
-
         console.log(basket);
         divBasket.className = "basketPanel";
         panel[0].appendChild(divBasket);
@@ -22,6 +21,7 @@ basket.onclick = function () {
     }
     else{
         divBasket.remove();
+
         nav[0].style.display="inline-block";
         slider[0].style.display="block";
         i--;
