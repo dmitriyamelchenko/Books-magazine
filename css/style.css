@@ -1,6 +1,6 @@
 * {
     margin:0;
-    padding: 0;
+    padding:0;
     font-family: 'Roboto';
 }
 
@@ -30,6 +30,8 @@
 }
 .basketPanel:hover{
     cursor: hand;
+    height: 600px;
+    width: 100%;
 }
 .basketPanel{
     width: 100%;
@@ -81,11 +83,12 @@
 
 /* <<<<<<<<Slider>>>>>> */
 .slider{
-    background-image: url(../img/slider.jpeg);
-    background-size: cover;
-    height: 400px;
-    margin: 0;
     padding: 0;
+}
+.carousel {
+    width: 877px;
+    height: 400px;
+    overflow: hidden;
 }
 
 /* <<<<<<Filters>>>>>>>>> */
@@ -94,12 +97,11 @@
     height: 50px;
 }
 
-
 /*<<<<<<<<<<<<<<<<<<<<<<<Content>>>>>>>>>>>>>>>>>>>> */
 .content{
     background: sandybrown;
     height: 750px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 
