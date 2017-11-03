@@ -1,3 +1,9 @@
+* {
+    margin:0;
+    padding: 0;
+}
+
+
 /* <<<<<<<<<<<<<<header styles>>>>>>>>>>>>>>>> */
 .header{
     height: 100px;
@@ -14,6 +20,29 @@
 .header-user-panel{
     height: 100px;
     background: blue;
+    padding: 0;
+}
+#basket{
+    height: 100px;
+    width: 100px;
+    background-image: url(../img/basket.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.basketPanel:hover{
+    cursor: hand;
+}
+.basketPanel{
+    width: 100%;
+    height: 400px;
+
+    background: rebeccapurple;
+    float: right;
+}
+.user{
+    height: 100px;
+    background:brown;
+    
 }
 
 
@@ -25,19 +54,26 @@
 /* <<<Category>>>> */
 .nav-category{
     list-style: none;
+    font-size: 25px;
 }
 .nav-category li{
    cursor: pointer;
-   transition: 0.3s;
+   transition: 0.2s;
+   line-height: 60px;
+   text-align: center;
+   border-bottom: solid 1px black;
+   margin-left: 15px;
+   
 }
 .nav-category li:first-child{
+    margin-top: 15px;
     background: rgb(46, 238, 46);
-    font-size: 20px;
+    font-size: 25px;
 }
 .nav-category li:hover{
-    font-size: 30px;
+    font-size: 35px;
     background: yellow;
-    transition: 0.3s;
+    transition: 0.1s;
 }
 .nav{
     background: red;
@@ -46,8 +82,11 @@
 
 /* <<<<<<<<Slider>>>>>> */
 .slider{
-    background: rebeccapurple;
+    background-image: url(../img/slider.jpeg);
+    background-size: cover;
     height: 400px;
+    margin: 0;
+    padding: 0;
 }
 
 /* <<<<<<Filters>>>>>>>>> */
