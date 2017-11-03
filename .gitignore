@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-*.[.iml];
-*.[.xml];
-=======
-*.[.iml]
-*.[.xml]
->>>>>>> 2f5928e63b91886cf75cbee983dd33fd8d78ee25
+
+.idea
+.idea/inspectionProfiles/
+.idea/modules.xml
