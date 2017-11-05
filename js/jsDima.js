@@ -2,16 +2,17 @@
 
 
 var basket = document.getElementById('basket');
-var panel = document.getElementsByClassName('panel');
+var panel = document.getElementsByClassName('nav_hidden');
 console.log(basket);
-var nav = document.getElementsByClassName('nav');
+var nav = document.getElementsByClassName('nav_menu');
 var slider = document.getElementsByClassName('slider');
 var i = 0;
 var divBasket = document.createElement('div');
+divBasket.id = "basketPanel";
 basket.onclick = function () {
     if(i==0){
         console.log(basket);
-        divBasket.className = "basketPanel";
+
         panel[0].appendChild(divBasket);
         divBasket.innerHTML = "<strong>Ура!</strong>";
         nav[0].style.display="none";

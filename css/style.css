@@ -1,140 +1,199 @@
 * {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     font-family: 'Roboto';
 }
 
-.header{
-    height: 100px;
-    background: grey;
+.header {
+    height: 80px;
+    background: #ffc038;
 }
-.header-logo{
-    height: 100px;
-    background: green;
+
+.header-logo {
+    position: relative;
+    top: 40px;
+    transform: translateY(-50%);
+
 }
-.header-search{
-    height: 100px;
-    background: gold;
+
+.header-search {
+    text-align: center;
+    position: relative;
+    top: 40px;
+    transform: translateY(-50%);
 }
-.header-user-panel{
-    height: 100px;
-    background: blue;
-    padding: 0;
+
+#search {
+    width: 300px;
+    padding-left: 10px;
+    line-height: 40px;
+    border: 1px;
+    outline-style: none;
+    background: rgba(255, 255, 255, 0.47);
 }
-#basket{
-    height: 100px;
+
+#button {
+    line-height: 40px;
+    border: 1px;
+    outline-style: none;
     width: 100px;
-    background-image: url(../img/basket.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    position: relative;
+    right: 4px;
+    background: rgba(14, 14, 14, 0.81);
+    color: #fff;
 }
-.basketPanel:hover{
+
+
+
+#basket {
+    position: relative;
+    top: 40px;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.73);
+    cursor: pointer;
+}
+
+#basket span {
+    color: white;
+}
+
+.wish_list {
+    text-align: center;
+    position: relative;
+    top: 40px;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.73);
+    cursor: pointer;
+}
+
+.wish_list span {
+    color: white;
+}
+
+.user {
+    text-align: center;
+    position: relative;
+    top: 45px;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.73);
+    cursor: pointer;
+}
+
+.user p {
+    color: white;
+}
+
+.basketPanel:hover {
     cursor: hand;
     height: 600px;
     width: 100%;
 }
-.basketPanel{
+
+#basketPanel {
     width: 100%;
     height: 400px;
 
-    background: rebeccapurple;
+    /*background: rebeccapurple;*/
     float: right;
 }
-.user{
-    height: 100px;
-    background:brown;
-    
-}
+
 /*<<<<<<<<Scroll>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 ::-webkit-scrollbar-button {
-    background-image:url('');
-    background-repeat:no-repeat;
-    width:5px;
-    height:50px
+    /*background-image: url('');*/
+    background-repeat: no-repeat;
+    width: 5px;
+    height: 50px
 }
 
 ::-webkit-scrollbar-track {
-    background-color:#ecedee
+    background-color: #ecedee
 }
+
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 0px;
     border-radius: 10px;
     background-color: blue;
 }
 
-::-webkit-scrollbar-thumb:hover{
+::-webkit-scrollbar-thumb:hover {
     background-color: red;
 }
 
-::-webkit-resizer{
-    background-image:url('');
-    background-repeat:no-repeat;
-    width:4px;
-    height:0px;
+::-webkit-resizer {
+    /*background-image: url('');*/
+    background-repeat: no-repeat;
+    width: 4px;
+    height: 0px;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 10px;
 }
 
-
 /* <<<<<<<<<<<<<<<<<<<main>>>>>>>>>>>>>>>>>>>>>> */
-.main{
-    background: grey;
+.main {
+    /*background: grey;*/
 }
 
 /* <<<Category>>>> */
-.nav-category{
+.nav-category {
     list-style: none;
-    font-size: 25px;
+    font-size: 18px;
 }
-.nav-category li{
-   cursor: pointer;
-   transition: 0.2s;
-   line-height: 60px;
-   text-align: center;
-   border-bottom: solid 1px black;
-   margin-left: 15px;
-   
+
+.nav-category li {
+    cursor: pointer;
+    transition: 0.2s;
+    line-height: 57px;
+    padding-left: 15px;
+
 }
-.nav-category li:first-child{
-    margin-top: 15px;
-    background: rgb(46, 238, 46);
-    font-size: 25px;
+
+.nav-category li:first-child {
+    background: #ffc038;
+    border: 1px solid;
 }
-.nav-category li:hover{
-    font-size: 35px;
-    background: yellow;
+
+.nav-category li:hover {
+    background: #ffc038;
     transition: 0.1s;
+    color: #0c0c0c;
 }
-.nav{
-    background: red;
+
+.nav_menu {
     height: 400px;
+    box-sizing: border-box;
+    border: 1px solid rgba(14, 14, 14, 0.81);
+    background: rgba(14, 14, 14, 0.81);
+    color: #fff;
+    width: 17%;
+    float: left;
 }
 
 /* <<<<<<<<Slider>>>>>> */
-.slider{
+.slider {
     padding: 0;
+    float: right;
+    width: 83%;
 }
+
 .carousel {
-    width: 877px;
     height: 400px;
     overflow: hidden;
 }
 
 /* <<<<<<Filters>>>>>>>>> */
-.filter{
+.filter {
     background: yellowgreen;
     height: 50px;
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<Content>>>>>>>>>>>>>>>>>>>> */
-.content{
+.content {
     background: sandybrown;
     height: 750px;
     overflow: auto;
 }
-
 
 #result .grocery_card {
     height: 200px;
@@ -169,28 +228,29 @@
     margin-bottom: 20px;
 }
 
-
 .grocery_card button {
     position: absolute;
     bottom: 0;
 
 }
 
-
 /* <<<<<<<<<<<<<<<<<<<<<<<Footer>>>>>>>>>>>>>>>>>>>>>> */
-.column1{
+.column1 {
     background: red;
     height: 200px;
 }
-.column2{
+
+.column2 {
     background: green;
     height: 200px;
 }
-.column3{
+
+.column3 {
     background: blue;
     height: 200px;
 }
-.column4{
+
+.column4 {
     background: yellow;
     height: 200px;
 }
