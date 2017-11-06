@@ -66,7 +66,7 @@ $.ajax({
         console.log(data);
             p.innerHTML = (data.items[i].volumeInfo ?data.items[i].volumeInfo.authors : 'author HZ');
             h4.innerHTML = data.items[i].volumeInfo.title;
-            var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/notPoster.jpeg');
+            var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/Not image.jpg');
             divImg.style.backgroundImage = 'url("'+poster+'")';
             span.innerHTML = data.items[i].saleInfo.listPrice ? data.items[i].saleInfo.listPrice.amount + ' ' + data.items[i].saleInfo.listPrice.currencyCode : 'not available';
             sell.innerHTML = 'Add to Card';
