@@ -178,22 +178,47 @@
 
 
 /* <<<<<<<<<<<<<<<<<<<<<<<Footer>>>>>>>>>>>>>>>>>>>>>> */
-.column1{
-    background: red;
-    height: 200px;
+.bg-primary{
+    height: 165px;
 }
-.column2{
-    background: green;
-    height: 200px;
+
+.bottom {
+    background: purple; 
+    height: 50px; 
+    text-align: center; 
+    line-height: 50px;
+    color: white;
+    font-family: arial, sans-serif;
 }
-.column3{
-    background: blue;
-    height: 200px;
+
+.columnStandard {
+    color: white;
+    margin-left: 10px;
+    margin-top: 15px;
 }
-.column4{
-    background: yellow;
-    height: 200px;
+
+.columnStandard ul {
+    list-style: none;
+}
+
+.columnStandard a {
+    text-decoration: none;
+    color: white;
+    line-height: 25px;
+
+}
+
+.columnStandard a:hover {
+    color: red;
+    transition: 0.5s;
+}
+
+.social-right {
+    float:right;
+    margin-right: 40px; 
 }
 
 
-
+.send-button {
+    height: 200px;
+}
