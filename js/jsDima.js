@@ -27,4 +27,5 @@ basket.onclick = function () {
         slider[0].style.display="block";
         i--;
     }
+    showCard();
 };
