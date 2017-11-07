@@ -11,13 +11,13 @@ var divBasket = document.createElement('div');
 divBasket.id = "basketPanel";
 basket.onclick = function () {
     if(i==0){
-        console.log(basket);
+        // console.log(basket);
 
         panel[0].appendChild(divBasket);
         divBasket.innerHTML = "<strong>Ура!</strong>";
         nav[0].style.display="none";
         slider[0].style.display="none";
-        console.log(i);
+        // console.log(i);
         i++;
     }
     else{
@@ -27,4 +27,4 @@ basket.onclick = function () {
         slider[0].style.display="block";
         i--;
     }
-}
+};
