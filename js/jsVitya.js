@@ -129,7 +129,7 @@ $.ajax({
     success: function(data) {
         for (var i = 0; i < data.items.length; i++) {
 
-        console.log(data.items.length);
+        // console.log(data.items.length);
 
             var div = document.createElement('div');
             var h4 = document.createElement('h4');
@@ -138,7 +138,7 @@ $.ajax({
             divImg.className = 'smallCardImg';
             var span = document.createElement('span');
             var sell = document.createElement('button');
-        console.log(data);
+        // console.log(data);
             p.innerHTML = (data.items[i].volumeInfo ?data.items[i].volumeInfo.authors : 'author HZ');
             h4.innerHTML = data.items[i].volumeInfo.title;
             var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/notPoster.jpeg');
@@ -212,3 +212,5 @@ function searchCategory() {
 
 
 document.getElementById('poetry').addEventListener('click', searchCategory, false);
+
+

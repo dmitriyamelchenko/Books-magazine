@@ -1,8 +1,6 @@
 
-
 window.onload = function () {
-
-    // ------basket-----
+    //--------------basket-----
 var basket = document.getElementById('basket');
 var panel = document.getElementsByClassName('nav_hidden');
 console.log(basket);
@@ -33,15 +31,18 @@ basket.onclick = function () {
 // ----category
 
 var category = document.getElementsByClassName('category');
-for(var i = 0; i<category.length; i++){
+for(let i = 0; i<category.length; i++){
     category[i].onclick = function(){
-        console.log(this.id);
+        // console.log(this.id);
         bookSearch(this);
     }
 }
-
-
-// -------Функция для поиска и формирования списка книг по категориям
+document.getElementById('button').addEventListener('click', bookSearch(this), true);
+// var search = document.getElementById('button');
+// search.onclick = function () {
+//     bookSearch(this);
+// }
+// -------Функция для поиска и формирования списка книг по категориям---
 function bookSearch(x) {
     var search = '';
     if(x.className=="category"){
@@ -51,15 +52,15 @@ function bookSearch(x) {
         search = document.getElementById('search').value; //для поиска
     }
     document.getElementById('result').innerHTML = '';
-    console.log(search);
+    // console.log(search);
 
     $.ajax({
         url: "https://www.googleapis.com/books/v1/volumes?q=" + search,
         dataType: "json",
 
         success: function (data) {
-            for (var i = 0; i < data.items.length; i++) {
-                console.dir(data.items[i]);
+            for (let i = 0; i < data.items.length; i++) {
+                // console.dir(data.items[i]);
                 var div = document.createElement('div');
                 var h4 = document.createElement('h4');
                 var p = document.createElement('p');
@@ -93,4 +94,15 @@ function bookSearch(x) {
 
 }
 
+var wish_list = document.getElementsByClassName('wish_list');
+    wish_list[0].onclick = function () {
+        var mainBlock = document.getElementsByClassName('mainBlock');
+        mainBlock.remove;
+
+    }
+
+
+
 };
+
+
