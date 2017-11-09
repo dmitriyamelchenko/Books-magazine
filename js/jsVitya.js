@@ -4,7 +4,7 @@ var cardAdded = JSON.parse(localStorage.getItem("cardAdded")) || [];
 var countBooksSearch = 0;
 var booksLengthSearch = 40;
 
-bookSearch(poppular);
+bookSearch('poppular');
 
 function bookSearch(x) {
     // var search = document.getElementById('search').value;
@@ -58,12 +58,14 @@ function bookSearch(x) {
                     button.classList.add('buy_button');
                     result.appendChild(div);
                     div.classList.add('grocery_card');
+                    // console.log(data.items[i]);
                 }
                 saveCardsToLS();
             }
         },
         type: 'GET'
     });
+
     // showCard();
 }
 document.getElementById('button').addEventListener('click', bookSearch, false);
@@ -205,4 +207,7 @@ showCard();
 function saveCardsToLS() {
     localStorage.setItem('cardAdded', JSON.stringify(cardAdded));
 }
+
+
+
 

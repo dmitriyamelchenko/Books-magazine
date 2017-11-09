@@ -65,7 +65,7 @@ img {
     color: white;
 }
 
-.wish_list {
+.wishList {
     text-align: center;
     position: relative;
     top: 40px;
@@ -77,8 +77,14 @@ img {
     margin-right: 15px;
 }
 
-.wish_list span {
+.wishList span {
     color: white;
+}
+
+.wishListBlock{
+    background: yellow;
+    width: 100%;
+    height: 500px;
 }
 
 .user {
@@ -97,10 +103,21 @@ img {
 }
 
 
+
+#userPanel{
+    background: blue;
+    width: 100%;
+    height: 500px;
+}
+
+
 #basketPanel div {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    background: green;
+    height: 100%;
+    width: 100%;
 }
 
 #basketPanel {
@@ -169,6 +186,7 @@ img {
 .main {
     /*background: grey;*/
 }
+
 
 /* <<<Category>>>> */
 .nav-category {
