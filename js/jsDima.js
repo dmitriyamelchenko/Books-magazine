@@ -6,6 +6,8 @@ var panel = document.getElementsByClassName('nav_hidden');
 console.log(basket);
 var nav = document.getElementsByClassName('nav_menu');
 var slider = document.getElementsByClassName('slider');
+var filter = document.getElementsByClassName('filter');
+var content = document.getElementsByClassName('content');
 var i = 0;
 var divBasket = document.createElement('div');
 divBasket.id = "basketPanel";
@@ -14,9 +16,11 @@ basket.onclick = function () {
         // console.log(basket);
 
         panel[0].appendChild(divBasket);
-        divBasket.innerHTML = "<strong>Ура!</strong>";
+        // divBasket.innerHTML = "<strong>Ура!</strong>";
         nav[0].style.display="none";
         slider[0].style.display="none";
+        filter[0].style.display="none";
+        content[0].style.display="none";
         // console.log(i);
         i++;
     }
@@ -25,7 +29,10 @@ basket.onclick = function () {
 
         nav[0].style.display="inline-block";
         slider[0].style.display="block";
+        filter[0].style.display="block";
+        content[0].style.display="block";
         i--;
     }
     showCard();
+
 };

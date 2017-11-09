@@ -65,6 +65,7 @@ img {
     color: white;
 }
 
+
 .wish_list {
     text-align: center;
     position: relative;
@@ -96,10 +97,11 @@ img {
     color: white;
 }
 
+/*BASKET!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 #basketPanel div {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -113,7 +115,13 @@ img {
 
 }
 
+.countCardsinBasket {
+    max-width: 15%;
+}
 
+.countCardsinBasket {
+
+}
 .cardItem {
     height: 100%;
     width: 14%;
@@ -149,11 +157,11 @@ img {
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 0px;
     border-radius: 10px;
-    background-color: blue;
+    background-color: #ffd44d;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: red;
+    background-color: #ffd08c;
 }
 
 ::-webkit-resizer {
@@ -245,7 +253,7 @@ img {
 
 /*<<<<<<<<<<<<<<<<<<<<<<<Content>>>>>>>>>>>>>>>>>>>> */
 .content {
-    background: sandybrown;
+    /*background: sandybrown;*/
     height: 750px;
     overflow: auto;
 }
@@ -319,6 +327,7 @@ img {
     background: yellow;
     height: 200px;
 }
+
 
 
 
