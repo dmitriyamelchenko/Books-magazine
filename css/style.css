@@ -2,10 +2,15 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto';
+
+}
+
+img {
+    width: 100%;
 }
 
 .header {
-    height: 80px;
+    min-height: 80px;
     background: #ffc038;
 }
 
@@ -51,6 +56,9 @@
     transform: translateY(-50%);
     color: rgba(0, 0, 0, 0.73);
     cursor: pointer;
+    float: left;
+    width: 15%;
+    margin-right: 15px;
 }
 
 #basket span {
@@ -64,6 +72,9 @@
     transform: translateY(-50%);
     color: rgba(0, 0, 0, 0.73);
     cursor: pointer;
+    float: left;
+    width: 25%;
+    margin-right: 15px;
 }
 
 .wish_list span {
@@ -77,24 +88,48 @@
     transform: translateY(-50%);
     color: rgba(0, 0, 0, 0.73);
     cursor: pointer;
+    float: left;
+    width: 40%;
 }
 
 .user p {
     color: white;
 }
 
-.basketPanel:hover {
-    cursor: hand;
-    height: 600px;
-    width: 100%;
+
+#basketPanel div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 #basketPanel {
     width: 100%;
     height: 400px;
-
-    background: rebeccapurple;
     float: right;
+    overflow: auto;
+}
+.countCardsinBasket {
+    max-width: 15%;
+}
+.cardItem {
+    height: 100%;
+    width: 14%;
+    background: rgba(204, 204, 204, 0.40);
+    margin: 20px;
+    position: relative;
+}
+
+
+.cardItem h3, .cardItem p {
+    text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    /*position: relative;*/
+    text-overflow: ellipsis;
 }
 
 /*<<<<<<<<Scroll>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -155,7 +190,7 @@
 }
 
 .nav-category li:hover {
-    background: #ffc038;
+    background: rgba(255, 192, 56, 0.60);
     transition: 0.1s;
     color: #0c0c0c;
 }
@@ -184,9 +219,26 @@
 
 /* <<<<<<Filters>>>>>>>>> */
 .filter {
-    background: yellowgreen;
-    /*background-image: url("../img/fon2.jpg");*/
+    background: #ffc038;
     height: 50px;
+}
+
+.filter ul {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.filter ul li {
+    list-style: none;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.filter ul li span {
+    margin-right: 10px;
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<Content>>>>>>>>>>>>>>>>>>>> */
@@ -197,29 +249,39 @@
     overflow: auto;
 }
 
+#result {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 #result .grocery_card {
-    height: 200px;
-    width: 29%;
+    height: 100%;
+    width: 14%;
     background: rgba(204, 204, 204, 0.40);
     margin: 20px;
-    float: left;
     position: relative;
 }
 
 .grocery_card .smallCardImg {
-    height: 100%;
-    background-size: contain;
+    height: 240px;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    width: 150px;
-    float: left;
+}
+
+.grocery_card .details {
+    padding: 10px;
 }
 
 .grocery_card h4, .grocery_card p {
     text-align: center;
     font-weight: 400;
-    display: block;
     font-size: 15px;
-
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    /*position: relative;*/
+    text-overflow: ellipsis;
 }
 
 .grocery_card span {
