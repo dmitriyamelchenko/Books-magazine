@@ -3,7 +3,7 @@
 
 var basket = document.getElementById('basket');
 var panel = document.getElementsByClassName('panel');
-console.log(basket);
+// console.log(basket);
 var nav = document.getElementsByClassName('nav');
 var slider = document.getElementsByClassName('slider');
 var i = 0;

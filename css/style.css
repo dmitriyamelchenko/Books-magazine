@@ -40,10 +40,17 @@
     background: rebeccapurple;
     float: right;
 }
+.bigBookPanel{
+    width: 100%;
+    height: 400px;
+
+    background: gray;
+    float: right;
+}
 .user{
     height: 100px;
     background:brown;
-    
+
 }
 /*<<<<<<<<Scroll>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 ::-webkit-scrollbar-button {
@@ -95,7 +102,7 @@
    text-align: center;
    border-bottom: solid 1px black;
    margin-left: 15px;
-   
+
 }
 .nav-category li:first-child{
     margin-top: 15px;
@@ -183,9 +190,9 @@
 }
 
 .bottom {
-    background: purple; 
-    height: 50px; 
-    text-align: center; 
+    background: purple;
+    height: 50px;
+    text-align: center;
     line-height: 50px;
     color: white;
     font-family: arial, sans-serif;
@@ -215,10 +222,45 @@
 
 .social-right {
     float:right;
-    margin-right: 40px; 
+    margin-right: 40px;
 }
 
 
 .send-button {
     height: 200px;
 }
+
+#wrap{
+		display: none;
+		opacity: 0.8;
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		padding: 16px;
+		background-color: rgba(1, 1, 1, 0.725);
+		z-index: 100;
+		overflow: auto;
+	}
+
+	#window{
+		width: 40%;
+		height: 40%;
+		margin: 50px auto;
+		display: none;
+		background: #fff;
+		z-index: 200;
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		padding: 16px;
+	}
+
+  .close{
+		margin-left: 364px;
+		margin-top: 4px;
+		cursor: pointer;
+	}
