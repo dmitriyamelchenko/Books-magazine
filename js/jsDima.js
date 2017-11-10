@@ -48,7 +48,7 @@ for(let i = 0; i<category.length; i++){
         bookSearch(this);
     }
 }
-document.getElementById('button').addEventListener('click', bookSearch(this), true);
+document.getElementById('button').addEventListener('click', bookSearch, true);
 
 
     // -------wishList понравившееся товары-------
@@ -163,3 +163,6 @@ document.getElementById('button').addEventListener('click', bookSearch(this), tr
     };
 };
 
+
+// sdsd()
+// sdsd

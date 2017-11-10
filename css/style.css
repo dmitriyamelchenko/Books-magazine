@@ -4,7 +4,6 @@
     font-family: 'Roboto';
 
 }
-
 img {
     width: 100%;
 }
@@ -64,17 +63,6 @@ img {
     color: white;
 }
 
-/*.wish_list {*/
-    /*text-align: center;*/
-    /*position: relative;*/
-    /*top: 40px;*/
-    /*transform: translateY(-50%);*/
-    /*color: rgba(0, 0, 0, 0.73);*/
-    /*cursor: pointer;*/
-    /*float: left;*/
-    /*width: 25%;*/
-    /*margin-right: 15px;*/
-/*}*/
 .wish_list {
     text-align: center;
     position: relative;
@@ -292,7 +280,7 @@ img {
 /* <<<<<<<<Slider>>>>>> */
 .slider {
     padding: 0;
-    float: right;
+    float: left;
     width: 83%;
 }
 
@@ -300,6 +288,42 @@ img {
     height: 400px;
     overflow: hidden;
 }
+
+.button-section {
+    position: relative;
+    left: 20px;
+    top: 40px;
+    z-index: 1;
+    outline: none;
+}
+
+.slide-relative {
+    position: relative;
+}
+
+.slider-button {
+    height: 25px;
+    width: 90px;
+    color: white;
+    border-radius: 4px;
+    border-color: #3b3b3b;
+    background: #3b3b3b;
+    transition: 0.3s;
+    opacity: 0.6;
+    z-index: 2;
+    outline: none;
+}
+
+.slider-button:hover {
+    background: #b5855d;
+    opacity: 1;
+}
+
+.slider-button-color-active {
+    background: #ffc011;
+    opacity: 1;
+}
+/*-----*/
 
 /* <<<<<<Filters>>>>>>>>> */
 .filter {
@@ -438,11 +462,6 @@ img {
     transition: 0.5s;
 }
 
-/*.social-right {*/
-    /*float:right;*/
-    /*margin-right: 40px; */
-/*}*/
-
 
 .social-right a {
     float: right;
@@ -464,3 +483,45 @@ img {
     background: rgba(14, 14, 14, 0.81);
     color: #fff;
 }
+
+
+#wrap{
+		display: none;
+		opacity: 0.8;
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		padding: 16px;
+		background-color: rgba(1, 1, 1, 0.725);
+		z-index: 100;
+		overflow: auto;
+	}
+
+	#window{
+		width: 40%;
+		height: 40%;
+		margin: 50px auto;
+		display: none;
+		background: #fff;
+		z-index: 200;
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		padding: 16px;
+	}
+    center{
+        display: block;
+        margin: 0 auto;
+    }
+
+  .close{
+		margin-left: 364px;
+		margin-top: 4px;
+		cursor: pointer;
+      width: 20px;
+      height: 20px;
+	}

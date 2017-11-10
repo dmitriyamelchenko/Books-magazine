@@ -8,17 +8,24 @@ var booksLengthSearch = 40;
 
 bookSearch('poppular');
 
+
+
+// Создаем масив куда влаживаем все книги с контент поля для текущего клиента
+var arrayBooks =[];
+
 function bookSearch(x) {
     var search = document.getElementById('search').value;
-    if(x.className="category"){
+
+    console.log("BOOK SEARCH", x, search);
+    if(x.className === "category"){
         search =  x.id; //для категорий
     }
-    else if(x =='poppular'){
-        search = poppular;
+    else if(x ==='poppular'){
+        search = x;
     }
     else{
         search = document.getElementById('search').value; //для поиска
-        console.log('hello');
+        // console.log('hello');
     }
     document.getElementById('result').innerHTML = '';
     $.ajax({
@@ -26,6 +33,7 @@ function bookSearch(x) {
         dataType: "json",
         success: function (data) {
             for (var i = 0; i < data.items.length; i++) {
+                arrayBooks.push(data.items[i]);
                 if (data.items[i].saleInfo.listPrice && data.items[i].saleInfo.listPrice.amount) {
                     var div = document.createElement('div');
                     var details = document.createElement('div');
@@ -62,15 +70,21 @@ function bookSearch(x) {
                     div.classList.add('grocery_card');
                     // console.log(data.items[i]);
                 }
+
                 saveCardsToLS();
             }
         },
         type: 'GET'
     });
 
+
+    // ----------Выводим масив всех книг с поля контент для юзера------
+    // в дальнейшем желательно хранить массив в локал стор
+    // console.log(arrayBooks);
     // showCard();
 }
-document.getElementById('button').addEventListener('click', bookSearch(this), false);
+// document.getElementById('button').addEventListener('click', bookSearch, false);
+
 
 function addToCard(event) {
     // Add book to Card
@@ -236,46 +250,50 @@ function saveCardsToLS() {
 }
 
 
-function searchCategory() {
-    document.getElementById('result').innerHTML = '';
+// function searchCategory() {
+//     // console.log("CATEGORY SEARCH");
+//
+//     document.getElementById('result').innerHTML = '';
+//
+//
+//     $.ajax({
+//         url: "https://www.googleapis.com/books/v1/volumes?q=poetry",
+//         dataType: "json",
+//
+//         success: function (data) {
+//             for (var i = 0; i < data.items.length; i++) {
+//
+//                 var div = document.createElement('div');
+//                 var h4 = document.createElement('h4');
+//                 var p = document.createElement('p');
+//                 var divImg = document.createElement('div');
+//                 var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/notPoster.jpeg');
+//                 divImg.className = 'smallCardImg';
+//                 divImg.style.backgroundImage = 'url("' + poster + '")';
+//                 var span = document.createElement('span');
+//                 var sell = document.createElement('button');
+//
+//                 p.innerHTML = data.items[i].volumeInfo.authors;
+//                 h4.innerHTML = data.items[i].volumeInfo.title;
+//                 divImg.style.backgroundImage = 'url("' + data.items[i].volumeInfo.imageLinks.thumbnail + '")';
+//                 span.innerHTML = data.items[i].saleInfo.listPrice ? data.items[i].saleInfo.listPrice.amount + ' ' + data.items[i].saleInfo.listPrice.currencyCode : 'not available';
+//                 sell.innerHTML = 'Add to Card';
+//                 div.appendChild(divImg);
+//                 div.appendChild(h4);
+//                 div.appendChild(p);
+//                 div.appendChild(span);
+//                 div.appendChild(sell);
+//                 button.classList.add('buy_button');
+//                 result.appendChild(div);
+//                 div.classList.add('grocery_card');
+//             }
+//         },
+//         type: 'GET'
+//     });
+// }
 
 
-    $.ajax({
-        url: "https://www.googleapis.com/books/v1/volumes?q=poetry",
-        dataType: "json",
-
-        success: function (data) {
-            for (var i = 0; i < data.items.length; i++) {
-
-                var div = document.createElement('div');
-                var h4 = document.createElement('h4');
-                var p = document.createElement('p');
-                var divImg = document.createElement('div');
-                var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/notPoster.jpeg');
-                divImg.className = 'smallCardImg';
-                divImg.style.backgroundImage = 'url("' + poster + '")';
-                var span = document.createElement('span');
-                var sell = document.createElement('button');
-
-                p.innerHTML = data.items[i].volumeInfo.authors;
-                h4.innerHTML = data.items[i].volumeInfo.title;
-                divImg.style.backgroundImage = 'url("' + data.items[i].volumeInfo.imageLinks.thumbnail + '")';
-                span.innerHTML = data.items[i].saleInfo.listPrice ? data.items[i].saleInfo.listPrice.amount + ' ' + data.items[i].saleInfo.listPrice.currencyCode : 'not available';
-                sell.innerHTML = 'Add to Card';
-                div.appendChild(divImg);
-                div.appendChild(h4);
-                div.appendChild(p);
-                div.appendChild(span);
-                div.appendChild(sell);
-                button.classList.add('buy_button');
-                result.appendChild(div);
-                div.classList.add('grocery_card');
-            }
-        },
-        type: 'GET'
-    });
-}
+// document.getElementById('poetry').addEventListener('click', searchCategory, false);
 
 
-document.getElementById('poetry').addEventListener('click', searchCategory, false);
 

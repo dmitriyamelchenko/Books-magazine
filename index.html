@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/media.css">
     <link rel="stylesheet" href="./libs/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/StyleofPopupwindow.css">
 
 </head>
 <body>
@@ -41,9 +43,9 @@
 
 <div class="main ">
     <div class="container mainBlock">
-        <div class="row nav_hidden">
+        <div class="row nav_hidden slide-relative">
             <div class="nav_menu">
-                <ul class="nav-category" id="category">
+                <ul class = "nav-category" id="category">
                     <li>Shop by Category</li>
                     <li class="category" id="poetry">Poetry</li>
                     <li class="category" id="detectives">Detectives</li>
@@ -53,12 +55,20 @@
                     <li class="category" id="esoterics">Esoterics</li>
                 </ul>
             </div>
-            <div class="slider">
+            <!-- slider button section -->
+            <div class="button-section">
+                <button class="slider-button" id="buttonNew">New</button>
+                <button class="slider-button" id="buttonPopular">Popular</button>
+                <button class="slider-button" id="buttonRecomended">Recomended</button>
+            </div>
+            <!--  -->
+
+            <!-- slider 1 -->
+            <div class="slider" id="firstSlider">
                 <div class="carousel slide" data-ride="Carousel" id="featured">
                     <ol class="carousel-indicators"></ol>
                     <div class="carousel-inner">
-                        <div class="item active"><img src="img/slide_clover.png" alt="Clover"></div>
-                        <div class="item"><img src="img/1.png" alt="leadership"></div>
+                        <div class="item active"><img src="img/1.png" alt="leadership"></div>
                         <div class="item"><img src="img/2.png" alt="children"></div>
                         <div class="item"><img src="img/3.png" alt="mess"></div>
                         <div class="item"><img src="img/4.jpg" alt="grocery"></div>
@@ -69,10 +79,55 @@
                     </a>
                     <a class="right carousel-control" href="#featured" role="button" data-slide="next">
                         <span class="glyphicon glyphicon-chevron-right"></span>
+
                     </a>
                 </div>
             </div>
-        </div>
+            <!--  -->
+
+            <!-- slider 2 -->
+            <div class="slider hidden" id="secondSlider">
+                <div class="carousel slide" data-ride="Carousel" id="featured1">
+                    <ol class="carousel-indicators"></ol>
+                    <div class="carousel-inner">
+                        <div class="item active"><img src="img/popular/1.jpg" alt="leadership"></div>
+                        <div class="item"><img src="img/popular/2.jpg" alt="children"></div>
+                        <div class="item"><img src="img/popular/3.jpg" alt="mess"></div>
+                        <div class="item"><img src="img/popular/4.jpg" alt="grocery"></div>
+                    </div>
+
+                    <a class="left carousel-control" href="#featured1" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#featured1" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+
+                </div>
+            </div>
+            <!-- -->
+
+            <!-- slider 3 -->
+            <div class="slider hidden" id="thirdSlider">
+                <div class="carousel slide" data-ride="Carousel" id="featured2">
+                    <ol class="carousel-indicators"></ol>
+                    <div class="carousel-inner">
+                        <div class="item active"><img src="img/recomended/1.png" alt="leadership"></div>
+                        <div class="item"><img src="img/recomended/2.jpg" alt="children"></div>
+                        <div class="item"><img src="img/recomended/3.jpg" alt="mess"></div>
+                        <div class="item"><img src="img/recomended/4.jpg" alt="grocery"></div>
+                    </div>
+
+                    <a class="left carousel-control" href="#featured2" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#featured2" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+
+                </div>
+            </div>
+            <!-- -->
         <div class="row">
             <div class="col-lg-12 filter">
                 <ul>
@@ -150,12 +205,32 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Всплывающее окно-->
+    <!-- Задний прозрачный фон-->
+    <div onclick="show('none')" id="wrap"></div>
+    <!-- Само окно-->
+    <div id="window">
+        <!-- Картинка крестика-->
+        <img  href="" class="close" onclick="hide()" src="./img/close.png">
+        <!-- Картинка книги-->
+        <center><p>
+            Тут будет подробное содержание книги!
+        </p>  </center>
+        <!-- Кнопка в окне-->
+        <center><a href="" class="myButton">Положить в корзину</a></center>
+    </div>
+
     <script src="./libs/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src ='./js/jsDima.js' defer></script>
     <script src ='js/jsAxmet.js' defer></script>
     <script src ='./js/jsVova.js' defer></script>
     <script src ='./js/jsVitya.js' defer></script>
+    <script src ='js/jsVladimir.js' defer></script>
+
 </div>
 </body>
 </html>
+
