@@ -6,8 +6,6 @@ var panel = document.getElementsByClassName('nav_hidden');
 console.log(basket);
 var nav = document.getElementsByClassName('nav_menu');
 var slider = document.getElementsByClassName('slider');
-var filter = document.getElementsByClassName('filter');
-var content = document.getElementsByClassName('content');
 var i = 0;
 var divBasket = document.createElement('div');
 
@@ -21,16 +19,12 @@ basket.onclick = function () {
         }
         // console.log(basket);
 
-// <<<<<<< HEAD
-        mainBlock[0].appendChild(divBasket);
-// =======
-//         panel[0].appendChild(divBasket);
-// >>>>>>> origin/Victor
+
         // divBasket.innerHTML = "<strong>Ура!</strong>";
         nav[0].style.display="none";
         slider[0].style.display="none";
-        filter[0].style.display="none";
-        content[0].style.display="none";
+        mainBlock[0].appendChild(divBasket);
+
         // console.log(i);
         i++;
     }
@@ -41,8 +35,6 @@ basket.onclick = function () {
         divBasket.remove();
         nav[0].style.display="inline-block";
         slider[0].style.display="block";
-        filter[0].style.display="block";
-        content[0].style.display="block";
         i--;
     }
     showCard();
@@ -60,12 +52,12 @@ document.getElementById('button').addEventListener('click', bookSearch(this), tr
 
 
     // -------wishList понравившееся товары-------
-    let wishList = document.getElementsByClassName('wishList');
+    let wish_list = document.getElementsByClassName('wish_list');
     let wishListBlock = document.createElement('div');
         wishListBlock.className = 'wishListBlock';
 
-    let flag = wishList ? 0 : 1;
-    wishList[0].onclick = function () {
+    let flag = wish_list ? 0 : 1;
+    wish_list[0].onclick = function () {
         let panel = document.getElementsByClassName('nav_hidden');
         let nav = document.getElementsByClassName('nav_menu');
         let slider = document.getElementsByClassName('slider');
@@ -83,6 +75,7 @@ document.getElementById('button').addEventListener('click', bookSearch(this), tr
             console.log(panelChildren[i].id);
             if (panelChildren[i].id=='userPanel') {
                 panelChildren[i].remove();
+                flag=0;
             }
             // if (panelChildren[i].id =='basketPanel') {
             //     console.log(panelChildren[i]);
@@ -141,6 +134,7 @@ document.getElementById('button').addEventListener('click', bookSearch(this), tr
         for(let i =0; i<childrenPanel.length; i++) {
             if (childrenPanel[i].className =='wishListBlock') {
                 childrenPanel[i].remove();
+                u=0;
             }
             // else if (childrenPanel[i].id =='basketPanel') {
             //     childrenPanel[i].remove();
@@ -168,31 +162,4 @@ document.getElementById('button').addEventListener('click', bookSearch(this), tr
         }
     };
 };
-
-
-//
-//
-// var user = document.getElementsByClassName('user');
-// panel = document.getElementsByClassName('nav_hidden');
-// nav = document.getElementsByClassName('nav_menu');
-// slider = document.getElementsByClassName('slider');
-// let u = 0;
-// let userPanel = document.createElement('div');
-// userPanel.id = "userPanel";
-// user[0].onclick = function () {
-//     if(u==0){
-//         // console.log(basket);
-//
-//         panel[0].appendChild(userPanel);
-//         nav[0].style.display="none";
-//         slider[0].style.display="none";
-//         u++;
-//     }
-//     else{
-//         userPanel.remove();
-//         nav[0].style.display="inline-block";
-//         slider[0].style.display="block";
-//         u--;
-//     }
-// };
 

@@ -1,8 +1,7 @@
 var cardAdded = JSON.parse(localStorage.getItem("cardAdded")) || [];
 
-
-    // var search = document.getElementById('search').value;
-    document.getElementById('result').innerHTML = '';
+// var search = document.getElementById('search').value;
+document.getElementById('result').innerHTML = '';
 
 var countBooksSearch = 0;
 var booksLengthSearch = 40;
@@ -11,15 +10,15 @@ bookSearch('poppular');
 
 function bookSearch(x) {
     var search = document.getElementById('search').value;
-    var search = '';
     if(x.className="category"){
         search =  x.id; //для категорий
     }
-    else if(x ==='poppular'){
+    else if(x =='poppular'){
         search = poppular;
     }
     else{
         search = document.getElementById('search').value; //для поиска
+        console.log('hello');
     }
     document.getElementById('result').innerHTML = '';
     $.ajax({
@@ -27,7 +26,7 @@ function bookSearch(x) {
         dataType: "json",
         success: function (data) {
             for (var i = 0; i < data.items.length; i++) {
-                if(data.items[i].saleInfo.listPrice && data.items[i].saleInfo.listPrice.amount) {
+                if (data.items[i].saleInfo.listPrice && data.items[i].saleInfo.listPrice.amount) {
                     var div = document.createElement('div');
                     var details = document.createElement('div');
                     var price_and_over = document.createElement('div');
@@ -40,8 +39,7 @@ function bookSearch(x) {
                     sell.className = 'add_to_card';
                     $(sell).on('click', addToCard);
                     var averageRating = document.createElement('div');
-                    averageRating.innerHTML = (data.items[i].volumeInfo && data.items[i].volumeInfo.averageRating ? data.items[i].volumeInfo.averageRating + ' rating' : 'no');
-
+                    averageRating.innerHTML = (data.items[i].volumeInfo && data.items[i].volumeInfo.averageRating ? data.items[i].volumeInfo.averageRating + ' rating' : '');
                     p.innerHTML = data.items[i].volumeInfo.authors;
                     h4.innerHTML = data.items[i].volumeInfo.title;
                     var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/notPoster.jpeg');
@@ -50,7 +48,6 @@ function bookSearch(x) {
                     sell.id = data.items[i].id;
                     sell.innerHTML = 'Add to Card';
                     div.appendChild(divImg);
-
                     details.appendChild(h4);
                     details.appendChild(p);
                     details.classList.add('details');
@@ -66,14 +63,15 @@ function bookSearch(x) {
                     // console.log(data.items[i]);
                 }
                 saveCardsToLS();
-                }
+            }
         },
         type: 'GET'
     });
 
     // showCard();
 }
-document.getElementById('button').addEventListener('click', bookSearch, false);
+document.getElementById('button').addEventListener('click', bookSearch(this), false);
+
 function addToCard(event) {
     // Add book to Card
     var image = $(event.target).parent().parent().find(".smallCardImg")[0].src;
@@ -95,23 +93,28 @@ function addToCard(event) {
     }
     saveCardsToLS();
     showCard();
-
 }
+
 function showCard() {
     $('#basketPanel').html("");
     var result = document.createElement("div");
+    result.className = 'busketCardsWrap';
     for (var index in cardAdded) {
         // Create block to add Cards
         var cardItem = document.createElement("div");
         cardItem.className = 'cardItem';
         result.appendChild(cardItem);
+
+        // Added IMAGE
         var cardImg = document.createElement("img");
         cardImg.className = 'smallCardImg';
-        cardImg.src = cardAdded[index].image? cardAdded[index].image : 'img/NotImage.jpg';
+        cardImg.src = cardAdded[index].image ? cardAdded[index].image : 'img/NotImage.jpg';
         cardItem.appendChild(cardImg);
+
         // Create teg with title
         var cardTitle = document.createElement("p");
         cardTitle.innerHTML = cardAdded[index].title;
+        cardTitle.className = 'cardTitle';
         cardItem.appendChild(cardTitle);
         // Create teg with author
         var cardAuthor = document.createElement('p');
@@ -121,7 +124,7 @@ function showCard() {
         else {
             cardAuthor.innerHTML = "author: folk";
         }
-
+        cardAuthor.className = 'cardAuthor';
         cardItem.appendChild(cardAuthor);
 
         // Added delete button
@@ -130,7 +133,6 @@ function showCard() {
         deleteButton.id = cardAdded[index].amount;
         deleteButton.innerHTML = 'x';
         cardItem.appendChild(deleteButton);
-
         deleteButton.onclick = function () {
             var deleteParent = this.parentNode;
             deleteParent.remove();
@@ -139,7 +141,6 @@ function showCard() {
             });
             localStorage.setItem("cardAdded", JSON.stringify(cardAdded));
         };
-
         // Added MINUS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! button
         var minusButton = document.createElement("button");
         minusButton.className = 'minusButton';
@@ -153,16 +154,14 @@ function showCard() {
             recountPrice();
             cardAdded = cardAdded.map((item, i) => {
                 console.log(" >>>>> ", item, i)
-                if(item.amount === this.id) {
+                if (item.amount === this.id) {
                     console.log(" >>>>> FIND >>>> ", item, i);
-
-                    return { ...item, count: item.count - 1};
+                    return {...item, count: item.count - 1};
                 }
                 else return item;
             });
             localStorage.setItem('cardAdded', JSON.stringify(cardAdded));
         };
-
         // Added amount (id of buttons) of cards
         var countCards = document.createElement('span');
         countCards.innerHTML = cardAdded[index].count;
@@ -175,33 +174,39 @@ function showCard() {
         plusButton.innerHTML = '+';
         plusButton.id = cardAdded[index].amount;
         cardItem.appendChild(plusButton);
-
         plusButton.onclick = function () {
             var plusButtonOnclick = $(event.target).parent().find("span")[0].innerHTML;
             $(event.target).parent().find("span")[0].innerHTML = parseInt(plusButtonOnclick) + 1;
             recountPrice();
             cardAdded = cardAdded.map((item, i) => {
+
                 if(item.amount === this.id) {
                     console.log(" >>>>> FIND >>>> ", item, i);
                     return { ...item, count: item.count + 1};
+
                 }
                 else return item;
             });
             localStorage.setItem('cardAdded', JSON.stringify(cardAdded));
         };
         // Added PRICE for one
-
         var priceCard = document.createElement("h4");
         priceCard.className = 'priceCard';
         var resultPrice = parseInt(cardAdded[index].price);
         priceCard.innerHTML = resultPrice;
         cardItem.appendChild(priceCard);
+        var priceCardTitle = document.createElement("span");
+        priceCard.appendChild(priceCardTitle);
+        priceCardTitle.innerHTML = 'price for one';
 
         // Added PRICE of All
         var priceSum = document.createElement('span');
         priceSum.className = 'priceSum';
-        var resultPriceSum =  0;
-        if (cardAdded[index].count > 0){
+        var priceSumTitle = document.createElement("span");
+        priceSum.appendChild(priceSumTitle);
+        priceSumTitle.innerHTML = 'price for all';
+        var resultPriceSum = 0;
+        if (cardAdded[index].count > 0) {
             resultPriceSum = cardAdded[index].count * parseInt(cardAdded[index].price);
             priceSum.innerHTML = resultPriceSum;
         }
@@ -223,67 +228,12 @@ function recountPrice() {
 }
 
 showCard();
+
+
+
 function saveCardsToLS() {
     localStorage.setItem('cardAdded', JSON.stringify(cardAdded));
 }
-
-
-function saveCardsToLS() {
-    localStorage.setItem('cardAdded', JSON.stringify(cardAdded));
-}
-
-
-
-var countBooks = 0;
-var booksLength = 40;
-
-
-let URL = `https://www.googleapis.com/books/v1/volumes?q=poppular&maxResults=${booksLength}&startIndex=${countBooks}`;
-$.ajax({
-    method: 'get',
-    url: URL,
-
-    success: function (data) {
-        for (var i = 0; i < data.items.length; i++) {
-
-
-            var div = document.createElement('div');
-            var details = document.createElement('div');
-            var price_and_over = document.createElement('div');
-            var h4 = document.createElement('h4');
-            var p = document.createElement('p');
-            var divImg = document.createElement('div');
-            divImg.className = 'smallCardImg';
-            var span = document.createElement('span');
-            var sell = document.createElement('button');
-            sell.className = 'add_to_card';
-            $('button.add_to_card').on('click', addToCard);
-            p.innerHTML = (data.items[i].volumeInfo ? data.items[i].volumeInfo.authors : 'author HZ');
-            h4.innerHTML = data.items[i].volumeInfo.title;
-            var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/notPoster.jpeg');
-            divImg.style.backgroundImage = 'url("' + poster + '")';
-            span.innerHTML = data.items[i].saleInfo.listPrice ? data.items[i].saleInfo.listPrice.amount + ' ' + data.items[i].saleInfo.listPrice.currencyCode : 'not available';
-            sell.innerHTML = 'Add to Card';
-            div.appendChild(divImg);
-            details.appendChild(h4);
-            details.appendChild(p);
-            details.classList.add('details');
-            div.appendChild(details);
-            price_and_over.appendChild(span);
-            price_and_over.appendChild(sell);
-            price_and_over.classList.add('price_and_over');
-            div.appendChild(price_and_over);
-            button.classList.add('buy_button');
-            result.appendChild(div);
-            div.classList.add('grocery_card');
-            countBooks++;
-            booksLength += 10;
-        }
-
-    },
-    fail: function (error) {
-    }
-});
 
 
 function searchCategory() {
@@ -321,11 +271,9 @@ function searchCategory() {
                 result.appendChild(div);
                 div.classList.add('grocery_card');
             }
-
         },
         type: 'GET'
     });
-
 }
 
 
