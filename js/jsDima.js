@@ -63,16 +63,23 @@ document.getElementById('button').addEventListener('click', bookSearch(this), tr
         let content = document.getElementsByClassName('content');
         let result = document.getElementById('result');
 
+
         // -----Проверка не открыто ли окно настроек юзера, если да то удаляем его-----
         let panelChildren =[];
         for(let i =0; i<panel[0].children.length; i++){
             panelChildren.push(panel[0].children[i]);
         }
         for(let i =0; i<panelChildren.length; i++) {
+            console.log(panelChildren[i].id);
             if (panelChildren[i].id=='userPanel') {
                 panelChildren[i].remove();
             }
-            console.log('lose');
+            // if (panelChildren[i].id =='basketPanel') {
+            //     console.log(panelChildren[i]);
+            //     childrenPanel[i].remove();
+            // }
+            // console.log(panelChildren[i].id);
+            // console.log('lose');
         }
 
         if(flag === 0) {
@@ -90,11 +97,12 @@ document.getElementById('button').addEventListener('click', bookSearch(this), tr
             wishListBlock.remove();
             nav[0].style.display="inline-block";
             slider[0].style.display="block";
-            result.style.display="block";
+            result.style.display="flex";
             filter[0].style.display='block';
-            content[0].style.display='none';
+            content[0].style.display='block';
             flag--;
         }
+        showCard();
     };
 
 
@@ -122,10 +130,11 @@ document.getElementById('button').addEventListener('click', bookSearch(this), tr
         }
         for(let i =0; i<childrenPanel.length; i++) {
             if (childrenPanel[i].className =='wishListBlock') {
-                console.log(childrenPanel[i]);
                 childrenPanel[i].remove();
-                console.log('run2');
             }
+            // else if (childrenPanel[i].id =='basketPanel') {
+            //     childrenPanel[i].remove();
+            // }
         }
 
         if(u==0){
@@ -142,9 +151,9 @@ document.getElementById('button').addEventListener('click', bookSearch(this), tr
             userPanel.remove();
             nav[0].style.display="inline-block";
             slider[0].style.display="block";
-            result.style.display="block";
+            result.style.display="flex";
             filter[0].style.display='block';
-            content[0].style.display='none';
+            content[0].style.display='block';
             u--;
         }
     };
