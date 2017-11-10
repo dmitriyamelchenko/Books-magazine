@@ -1,13 +1,16 @@
 var cardAdded = JSON.parse(localStorage.getItem("cardAdded")) || [];
 
 
+    // var search = document.getElementById('search').value;
+    document.getElementById('result').innerHTML = '';
+
 var countBooksSearch = 0;
 var booksLengthSearch = 40;
 
 bookSearch('poppular');
 
 function bookSearch(x) {
-    // var search = document.getElementById('search').value;
+    var search = document.getElementById('search').value;
     var search = '';
     if(x.className="category"){
         search =  x.id; //для категорий
@@ -38,6 +41,7 @@ function bookSearch(x) {
                     $(sell).on('click', addToCard);
                     var averageRating = document.createElement('div');
                     averageRating.innerHTML = (data.items[i].volumeInfo && data.items[i].volumeInfo.averageRating ? data.items[i].volumeInfo.averageRating + ' rating' : 'no');
+
                     p.innerHTML = data.items[i].volumeInfo.authors;
                     h4.innerHTML = data.items[i].volumeInfo.title;
                     var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/notPoster.jpeg');
@@ -46,6 +50,7 @@ function bookSearch(x) {
                     sell.id = data.items[i].id;
                     sell.innerHTML = 'Add to Card';
                     div.appendChild(divImg);
+
                     details.appendChild(h4);
                     details.appendChild(p);
                     details.classList.add('details');
@@ -61,7 +66,7 @@ function bookSearch(x) {
                     // console.log(data.items[i]);
                 }
                 saveCardsToLS();
-            }
+                }
         },
         type: 'GET'
     });
@@ -90,6 +95,7 @@ function addToCard(event) {
     }
     saveCardsToLS();
     showCard();
+
 }
 function showCard() {
     $('#basketPanel').html("");
@@ -115,13 +121,16 @@ function showCard() {
         else {
             cardAuthor.innerHTML = "author: folk";
         }
+
         cardItem.appendChild(cardAuthor);
+
         // Added delete button
         var deleteButton = document.createElement("button");
         deleteButton.className = 'deleteButton';
         deleteButton.id = cardAdded[index].amount;
         deleteButton.innerHTML = 'x';
         cardItem.appendChild(deleteButton);
+
         deleteButton.onclick = function () {
             var deleteParent = this.parentNode;
             deleteParent.remove();
@@ -130,12 +139,14 @@ function showCard() {
             });
             localStorage.setItem("cardAdded", JSON.stringify(cardAdded));
         };
+
         // Added MINUS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! button
         var minusButton = document.createElement("button");
         minusButton.className = 'minusButton';
         minusButton.innerHTML = '-';
         minusButton.id = cardAdded[index].amount;
         cardItem.appendChild(minusButton);
+
         minusButton.onclick = function () {
             var minusButtonOnclick = $(event.target).parent().find("span")[0].innerHTML;
             $(event.target).parent().find("span")[0].innerHTML = parseInt(minusButtonOnclick) - 1;
@@ -144,29 +155,32 @@ function showCard() {
                 console.log(" >>>>> ", item, i)
                 if(item.amount === this.id) {
                     console.log(" >>>>> FIND >>>> ", item, i);
+
                     return { ...item, count: item.count - 1};
                 }
                 else return item;
             });
             localStorage.setItem('cardAdded', JSON.stringify(cardAdded));
         };
+
         // Added amount (id of buttons) of cards
         var countCards = document.createElement('span');
         countCards.innerHTML = cardAdded[index].count;
         cardItem.className = 'countCardsinBasket';
         cardItem.appendChild(countCards);
+
         // Added PLUS button
         var plusButton = document.createElement("button");
         plusButton.className = 'plusButton';
         plusButton.innerHTML = '+';
         plusButton.id = cardAdded[index].amount;
         cardItem.appendChild(plusButton);
+
         plusButton.onclick = function () {
             var plusButtonOnclick = $(event.target).parent().find("span")[0].innerHTML;
             $(event.target).parent().find("span")[0].innerHTML = parseInt(plusButtonOnclick) + 1;
             recountPrice();
             cardAdded = cardAdded.map((item, i) => {
-                console.log(" >>>>> ", item, i)
                 if(item.amount === this.id) {
                     console.log(" >>>>> FIND >>>> ", item, i);
                     return { ...item, count: item.count + 1};
@@ -176,11 +190,13 @@ function showCard() {
             localStorage.setItem('cardAdded', JSON.stringify(cardAdded));
         };
         // Added PRICE for one
+
         var priceCard = document.createElement("h4");
         priceCard.className = 'priceCard';
         var resultPrice = parseInt(cardAdded[index].price);
         priceCard.innerHTML = resultPrice;
         cardItem.appendChild(priceCard);
+
         // Added PRICE of All
         var priceSum = document.createElement('span');
         priceSum.className = 'priceSum';
@@ -193,9 +209,11 @@ function showCard() {
             resultPrice = cardAdded[index].price;
         }
         cardItem.appendChild(priceSum);
+
     }
     $('#basketPanel').append(result);
 }
+
 function recountPrice() {
     var currentCount = parseFloat($(event.target).parent().find("span")[0].innerHTML);
     var currentPrice = parseFloat($(event.target).parent().find(".priceCard")[0].innerHTML);
@@ -203,11 +221,113 @@ function recountPrice() {
     var resultPrice = currentCount * currentPrice;
     $(event.target).parent().find(".priceSum")[0].innerHTML = resultPrice;
 }
+
 showCard();
 function saveCardsToLS() {
     localStorage.setItem('cardAdded', JSON.stringify(cardAdded));
 }
 
 
+function saveCardsToLS() {
+    localStorage.setItem('cardAdded', JSON.stringify(cardAdded));
+}
 
+
+
+var countBooks = 0;
+var booksLength = 40;
+
+
+let URL = `https://www.googleapis.com/books/v1/volumes?q=poppular&maxResults=${booksLength}&startIndex=${countBooks}`;
+$.ajax({
+    method: 'get',
+    url: URL,
+
+    success: function (data) {
+        for (var i = 0; i < data.items.length; i++) {
+
+
+            var div = document.createElement('div');
+            var details = document.createElement('div');
+            var price_and_over = document.createElement('div');
+            var h4 = document.createElement('h4');
+            var p = document.createElement('p');
+            var divImg = document.createElement('div');
+            divImg.className = 'smallCardImg';
+            var span = document.createElement('span');
+            var sell = document.createElement('button');
+            sell.className = 'add_to_card';
+            $('button.add_to_card').on('click', addToCard);
+            p.innerHTML = (data.items[i].volumeInfo ? data.items[i].volumeInfo.authors : 'author HZ');
+            h4.innerHTML = data.items[i].volumeInfo.title;
+            var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/notPoster.jpeg');
+            divImg.style.backgroundImage = 'url("' + poster + '")';
+            span.innerHTML = data.items[i].saleInfo.listPrice ? data.items[i].saleInfo.listPrice.amount + ' ' + data.items[i].saleInfo.listPrice.currencyCode : 'not available';
+            sell.innerHTML = 'Add to Card';
+            div.appendChild(divImg);
+            details.appendChild(h4);
+            details.appendChild(p);
+            details.classList.add('details');
+            div.appendChild(details);
+            price_and_over.appendChild(span);
+            price_and_over.appendChild(sell);
+            price_and_over.classList.add('price_and_over');
+            div.appendChild(price_and_over);
+            button.classList.add('buy_button');
+            result.appendChild(div);
+            div.classList.add('grocery_card');
+            countBooks++;
+            booksLength += 10;
+        }
+
+    },
+    fail: function (error) {
+    }
+});
+
+
+function searchCategory() {
+    document.getElementById('result').innerHTML = '';
+
+
+    $.ajax({
+        url: "https://www.googleapis.com/books/v1/volumes?q=poetry",
+        dataType: "json",
+
+        success: function (data) {
+            for (var i = 0; i < data.items.length; i++) {
+
+                var div = document.createElement('div');
+                var h4 = document.createElement('h4');
+                var p = document.createElement('p');
+                var divImg = document.createElement('div');
+                var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/notPoster.jpeg');
+                divImg.className = 'smallCardImg';
+                divImg.style.backgroundImage = 'url("' + poster + '")';
+                var span = document.createElement('span');
+                var sell = document.createElement('button');
+
+                p.innerHTML = data.items[i].volumeInfo.authors;
+                h4.innerHTML = data.items[i].volumeInfo.title;
+                divImg.style.backgroundImage = 'url("' + data.items[i].volumeInfo.imageLinks.thumbnail + '")';
+                span.innerHTML = data.items[i].saleInfo.listPrice ? data.items[i].saleInfo.listPrice.amount + ' ' + data.items[i].saleInfo.listPrice.currencyCode : 'not available';
+                sell.innerHTML = 'Add to Card';
+                div.appendChild(divImg);
+                div.appendChild(h4);
+                div.appendChild(p);
+                div.appendChild(span);
+                div.appendChild(sell);
+                button.classList.add('buy_button');
+                result.appendChild(div);
+                div.classList.add('grocery_card');
+            }
+
+        },
+        type: 'GET'
+    });
+
+}
+
+
+document.getElementById('poetry').addEventListener('click', searchCategory, false);
 
