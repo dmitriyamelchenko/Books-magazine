@@ -192,7 +192,6 @@ function showCard() {
             });
             localStorage.setItem('cardAdded', JSON.stringify(cardAdded));
         };
-
         // Added amount (id of buttons) of cards
         var countCards = document.createElement('span');
         countCards.innerHTML = cardAdded[index].count;
