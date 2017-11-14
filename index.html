@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300i,400,700" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/media.css">
@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-3 col-sm-2 col-md-3 header-logo">
-                <a href="#"><img src="./img/Logo.png" alt="Logo"></a>
+                <a href="#"><img src="./img/Logo.svg" alt="Logo"></a>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-6">
                 <div class="row header-search">
@@ -32,20 +32,20 @@
                 <div id="basket"><i class="fa fa-shopping-cart fa-2x"
                                     aria-hidden="true"></i><span>Card</span></div>
                 <div class="wish_list"><i class="fa fa-gratipay fa-2x"
-                                         aria-hidden="true"></i><span>wish_list</span></div>
+                                          aria-hidden="true"></i><span>wish_list</span></div>
                 <div class="user"><i class="fa fa-user fa-2x" aria-hidden="true"></i>
                     <p>My Account</p></div>
             </div>
         </div>
     </div>
 </div>
-</div>
+<!--</div>-->
 
 <div class="main ">
     <div class="container mainBlock">
         <div class="row nav_hidden slide-relative">
             <div class="nav_menu">
-                <ul class = "nav-category" id="category">
+                <ul class="nav-category" id="category">
                     <li>Shop by Category</li>
                     <li class="category" id="poetry">Poetry</li>
                     <li class="category" id="detectives">Detectives</li>
@@ -128,24 +128,28 @@
                 </div>
             </div>
             <!-- -->
-        <div class="row">
-            <div class="col-lg-12 filter">
-                <ul>
-                    <li>Main</li>
-                    <li><span>Price</span><i class="fa fa-arrows-v" aria-hidden="true"></i></li>
-                    <li><span>Rating</span><i class="fa fa-arrows-v" aria-hidden="true"></i></li>
-                    <li>Novelties</li>
-                </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 filter">
+                        <ul>
+                            <li>Main</li>
+                            <li><span>Price</span><i class="fa fa-arrows-v" aria-hidden="true"></i></li>
+                            <li><span>Rating</span><i class="fa fa-arrows-v" aria-hidden="true"></i></li>
+                            <li>Novelties</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="content flow_content">
-                <div id="content_random"></div>
-                <div id="result"></div>
+            <div class="row">
+                <div class="content flow_content">
+                    <div id="content_random"></div>
+                    <div id="result"></div>
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
+
 </div>
 <div class="footer">
     <div class="container">
@@ -157,7 +161,7 @@
                             <li>Shop by Category</li>
                             <li class="category">Poetry</li>
                             <li class="category">Detectives</li>
-                            <li class="category">Fentezi</li>
+                            <li class="category">Fantasy</li>
                             <li class="category">Novels</li>
                             <li class="category">Horrors</li>
                             <li class="category">Esoterics</li>
@@ -207,30 +211,39 @@
     </div>
 
 
-    <!-- Всплывающее окно-->
-    <!-- Задний прозрачный фон-->
-    <div onclick="show('none')" id="wrap"></div>
-    <!-- Само окно-->
-    <div id="window">
-        <!-- Картинка крестика-->
-        <img  href="" class="close" onclick="hide()" src="./img/close.png">
-        <!-- Картинка книги-->
-        <center><p>
-            Тут будет подробное содержание книги!
-        </p>  </center>
-        <!-- Кнопка в окне-->
-        <center><a href="" class="myButton">Положить в корзину</a></center>
-    </div>
-
-    <script src="./libs/jquery-3.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src ='./js/jsDima.js' defer></script>
-    <script src ='js/jsAxmet.js' defer></script>
-    <script src ='./js/jsVova.js' defer></script>
-    <script src ='./js/jsVitya.js' defer></script>
-    <script src ='js/jsVladimir.js' defer></script>
-
 </div>
+
+
+<!-- Всплывающее окно-->
+<!-- Задний прозрачный фон-->
+<div onclick="show('none')" id="wrap"></div>
+<!-- Само окно-->
+<div id="window">
+
+    <img id="img_popup" alt="book_img">
+    <!-- Картинка крестика-->
+    <img href="" class="close" onclick="hide()" src="./img/close.png">
+    <!-- Картинка книги-->
+    <h5 id="title_popup"></h5>
+    <p id="description_popup">
+        Тут будет подробное содержание книги!
+    </p>
+    <span id="categories_popup"></span>
+
+    <!-- Кнопка в окне-->
+    <a href="" class="myButton">Положить в корзину</a>
+</div>
+    <script src="./libs/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src='./js/jsDima.js' defer></script>
+    <script src='js/jsAxmet.js' defer></script>
+    <script src='./js/jsVova.js' defer></script>
+    <script src='./js/jsVitya.js' defer></script>
+    <script src='js/jsVladimir.js' defer></script>
+
+
 </body>
 </html>
 

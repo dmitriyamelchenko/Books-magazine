@@ -99,13 +99,10 @@ img {
     color: white;
 }
 
-#basketPanel {
-    max-height: 1200px;
-    overflow: auto;
-    /*position: relative;*/
-    /*left: 50%;*/
-    /*transform: translateX(-50%);*/
-}
+/*#basketPanel {*/
+    /*max-height: 1100px;*/
+    /*overflow: visible;*/
+/*}*/
 
 #userPanel{
     background: blue;
@@ -126,8 +123,8 @@ img {
 }
 
 .busketCardsWrap {
-    position: relative;
-    left: 5%;
+    overflow: auto;
+    height: 1100px;
 }
 
 .countCardsinBasket .smallCardImg {
@@ -282,6 +279,8 @@ img {
     padding: 0;
     float: left;
     width: 83%;
+    position: relative;
+    top: -25px;
 }
 
 .carousel {
@@ -329,6 +328,8 @@ img {
 .filter {
     background: #ffc038;
     height: 50px;
+    position: relative;
+    top: -25px;
 }
 
 .filter ul {
@@ -500,22 +501,24 @@ img {
 	}
 
 	#window{
-		width: 40%;
-		height: 40%;
-		margin: 50px auto;
-		display: none;
-		background: #fff;
-		z-index: 200;
-		position: fixed;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		padding: 16px;
+        width: 40%;
+        height: 600px;
+        margin: 50px auto;
+        display: none;
+        background: #fff;
+        z-index: 200;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding: 16px;
 	}
-    center{
-        display: block;
-        margin: 0 auto;
+
+    #img_popup {
+        width: 300px;
+        height: 600px;
+        float: left;
     }
 
   .close{

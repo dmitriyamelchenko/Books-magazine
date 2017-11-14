@@ -31,9 +31,11 @@ function bookSearch(x) {
     $.ajax({
         url: `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=${booksLengthSearch}&startIndex=${countBooksSearch}`,
         dataType: "json",
+
         success: function (data) {
             for (var i = 0; i < data.items.length; i++) {
                 arrayBooks.push(data.items[i]);
+                // console.log(arrayBooks);
                 if (data.items[i].saleInfo.listPrice && data.items[i].saleInfo.listPrice.amount) {
                     var div = document.createElement('div');
                     var details = document.createElement('div');
@@ -51,6 +53,7 @@ function bookSearch(x) {
                     p.innerHTML = data.items[i].volumeInfo.authors;
                     h4.innerHTML = data.items[i].volumeInfo.title;
                     var poster = (data.items[i].volumeInfo.imageLinks ? data.items[i].volumeInfo.imageLinks.thumbnail : 'img/notPoster.jpeg');
+                    console.log(poster);
                     divImg.src = poster;
                     span.innerHTML = data.items[i].saleInfo.listPrice ? data.items[i].saleInfo.listPrice.amount + ' ' + data.items[i].saleInfo.listPrice.currencyCode : false;
                     sell.id = data.items[i].id;
